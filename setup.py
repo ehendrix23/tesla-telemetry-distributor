@@ -8,24 +8,24 @@
 
 import io
 import os
-from shutil import rmtree
 import sys
+from shutil import rmtree
 
 from setuptools import Command, find_packages, setup  # type: ignore
 
 # Package meta-data.
-NAME = "teslemetry-teslamate"
+NAME = "tesla-telemetry-distributor"
 DESCRIPTION = (
-    ""Sync Teslamate from Teslemetry"
+    "Converts Tesla telemetry streams from a Tesla telemetry supplier to other methods"
 )
-URL = "https://github.com/ehendrix23/teslemetry-teslamate"
+URL = "https://github.com/ehendrix23/tesla-telemetry-distributor"
 EMAIL = "hendrix_erik@hotmail.com"
 AUTHOR = "Erik Hendrix"
-REQUIRES_PYTHON = ">=3.8"
+REQUIRES_PYTHON = ">=3.13"
 VERSION = None
 
 # What packages are required for this module to be executed?
-REQUIRED = []
+REQUIRED: list = []
 
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
@@ -49,14 +49,17 @@ else:
     ABOUT["__version__"] = VERSION
 
 if len(REQUIRED) == 0 and os.path.isfile(os.path.join(HERE, "requirements.txt")):
-  requirements = os.path.join(HERE, "requirements.txt").read_text().splitlines().strip()
-  for requirement in requirements:
-    if requirement[0] == "-":
-      continue
-    requirement = requirement.split('=')[0]
-    requirement = requirement.split('>')[0]
-    requirement = requirement.split('<')[0]
-    REQUIRED.append(requirement)
+    requirements = (
+        os.path.join(HERE, "requirements.txt").read_text().splitlines().strip()
+    )
+    for requirement in requirements:
+        if requirement[0] == "-":
+            continue
+        requirement = requirement.split("=")[0]
+        requirement = requirement.split(">")[0]
+        requirement = requirement.split("<")[0]
+        REQUIRED.append(requirement)
+
 
 class UploadCommand(Command):
     """Support setup.py upload."""

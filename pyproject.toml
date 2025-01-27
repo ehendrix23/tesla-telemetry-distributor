@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "teslemetry-teslamate"
+name = "tesla-telemetry-distributor"
 version = "0.1.0"
-description = "Sync Teslamate from Teslemetry"
+description = "Converts Tesla telemetry streams from a Tesla telemetry supplier to other methods"
 authors = ["Erik Hendrix <hendrix_erik@hotmail.com>"]
 license = "Apache License 2.0"
 readme = "README.md"
@@ -11,16 +11,16 @@ classifiers = [
 	"License :: OSI Approved :: Apache Software License",
 	"Programming Language :: Python",
 	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.13",
 	"Programming Language :: Python :: Implementation :: CPython",
 	"Programming Language :: Python :: Implementation :: PyPy",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.13"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^8.3.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
