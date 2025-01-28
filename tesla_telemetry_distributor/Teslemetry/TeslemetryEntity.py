@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING, Any
 from teslemetry_stream import Signal
 
 if TYPE_CHECKING:
-    from teslemetry_teslamate.const import (
+    from tesla_telemetry_distributor.const import (
         StateType,
         TeslaVehicleDataType,
         VehicleDataType,

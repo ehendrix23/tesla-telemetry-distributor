@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "tesla-telemetry-distributor"
+name = "tesla_telemetry_distributor"
 version = "0.1.0"
 description = "Converts Tesla telemetry streams from a Tesla telemetry supplier to other methods"
 authors = ["Erik Hendrix <hendrix_erik@hotmail.com>"]

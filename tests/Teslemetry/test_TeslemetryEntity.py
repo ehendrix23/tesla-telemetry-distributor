@@ -2,7 +2,7 @@ import datetime
 
 import pytest
 
-from teslemetry_teslamate.Teslemetry.TeslemetryEntity import TeslemetryEntity
+from tesla_telemetry_distributor.Teslemetry.TeslemetryEntity import TeslemetryEntity
 
 
 def test_values():

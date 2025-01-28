@@ -5,19 +5,21 @@ from asyncio import Queue
 from copy import deepcopy
 from typing import TYPE_CHECKING, Any
 
-from teslemetry_teslamate.const import (
+from tesla_telemetry_distributor.const import (
     STREAMING_VEHICLE_DATA,
     Signal,
     TeslaVehicleDataType,
     VehicleDataType,
 )
-from teslemetry_teslamate.Teslemetry.TeslemetryEntity import (
+from tesla_telemetry_distributor.Teslemetry.TeslemetryEntity import (
     TeslemetryEntity,
     TeslemetryEntityList,
 )
 
 if TYPE_CHECKING:
-    from teslemetry_teslamate.Teslemetry.TeslemetryHandler import TeslemetryHandler
+    from tesla_telemetry_distributor.Teslemetry.TeslemetryHandler import (
+        TeslemetryHandler,
+    )
 
 _LOGGER = logging.getLogger(__name__)
 

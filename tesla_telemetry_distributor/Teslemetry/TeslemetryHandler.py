@@ -8,7 +8,7 @@ from tesla_fleet_api.exceptions import InvalidToken, TeslaFleetError
 from tesla_fleet_api.teslemetry import Teslemetry
 from teslemetry_stream import TeslemetryStream
 
-from teslemetry_teslamate.Teslemetry.Vehicle import Vehicle
+from tesla_telemetry_distributor.Teslemetry.Vehicle import Vehicle
 
 _LOGGER = logging.getLogger(__name__)
 

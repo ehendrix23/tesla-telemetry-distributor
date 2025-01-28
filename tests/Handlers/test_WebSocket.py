@@ -4,7 +4,7 @@ from unittest.mock import AsyncMock, Mock
 import aiohttp
 import pytest
 
-from teslemetry_teslamate.Handlers.WebSocket import WebSocket
+from tesla_telemetry_distributor.Handlers.WebSocket import WebSocket
 
 TOKEN: str = "1234"
 VIN: str = "5Y1234FG"

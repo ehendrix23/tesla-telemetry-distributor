@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from aiohttp import web
 from aiohttp_remotes import ForwardedRelaxed, XForwardedRelaxed, setup
 
-from teslemetry_teslamate.Teslemetry.TeslemetryHandler import TeslemetryHandler
+from tesla_telemetry_distributor.Teslemetry.TeslemetryHandler import TeslemetryHandler
 
 _LOGGER = logging.getLogger(__name__)
 

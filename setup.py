@@ -14,11 +14,11 @@ from shutil import rmtree
 from setuptools import Command, find_packages, setup  # type: ignore
 
 # Package meta-data.
-NAME = "tesla-telemetry-distributor"
+NAME = "tesla_telemetry_distributor"
 DESCRIPTION = (
     "Converts Tesla telemetry streams from a Tesla telemetry supplier to other methods"
 )
-URL = "https://github.com/ehendrix23/tesla-telemetry-distributor"
+URL = "https://github.com/ehendrix23/tesla_telemetry_distributor"
 EMAIL = "hendrix_erik@hotmail.com"
 AUTHOR = "Erik Hendrix"
 REQUIRES_PYTHON = ">=3.12"

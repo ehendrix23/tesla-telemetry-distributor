@@ -7,9 +7,9 @@ from unittest.mock import AsyncMock, Mock, PropertyMock, patch
 import pytest
 from teslemetry_stream import TeslemetryStream
 
-from teslemetry_teslamate.Teslemetry import TeslemetryHandler
-from teslemetry_teslamate.Teslemetry.TeslemetryHandler import Teslemetry
-from teslemetry_teslamate.Teslemetry.Vehicle import Vehicle
+from tesla_telemetry_distributor.Teslemetry import TeslemetryHandler
+from tesla_telemetry_distributor.Teslemetry.TeslemetryHandler import Teslemetry
+from tesla_telemetry_distributor.Teslemetry.Vehicle import Vehicle
 from tests.data.tesla_data import METADATA, PRODUCTS, TESLA_VEHICLE_DATA
 
 
@@ -26,7 +26,8 @@ def log_entry_exist(caplog, levelname: str, message: str) -> bool:
 @pytest.fixture()
 def mock_teslemetry():
     with patch(
-        "teslemetry_teslamate.Teslemetry.TeslemetryHandler.Teslemetry", spec=Teslemetry
+        "tesla_telemetry_distributor.Teslemetry.TeslemetryHandler.Teslemetry",
+        spec=Teslemetry,
     ) as mocked_teslemetry:
         mocked_teslemetry.return_value.metadata = AsyncMock(side_effect=METADATA)
         mocked_teslemetry.return_value.products = AsyncMock(side_effect=PRODUCTS)
@@ -40,7 +41,7 @@ def mock_teslemetry():
 @pytest.fixture
 def mock_teslemetry_stream():
     with patch(
-        "teslemetry_teslamate.Teslemetry.TeslemetryHandler.TeslemetryStream",
+        "tesla_telemetry_distributor.Teslemetry.TeslemetryHandler.TeslemetryStream",
         spec=TeslemetryStream,
     ) as mocked_stream:
         mocked_stream.return_value.connect = AsyncMock()

@@ -1,7 +1,7 @@
 import aiohttp
 import pytest
 
-from teslemetry_teslamate.Handlers.WebServer import (
+from tesla_telemetry_distributor.Handlers.WebServer import (
     INVALID_TOKEN,
     TOKEN_NOT_PROVIDED,
     VIN_NOT_FOUND,

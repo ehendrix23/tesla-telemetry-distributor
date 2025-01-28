@@ -1,4 +1,4 @@
-from teslemetry_teslamate.helpers import (
+from tesla_telemetry_distributor.helpers import (
     cast_bool,
     cast_latitude,
     cast_longitude,

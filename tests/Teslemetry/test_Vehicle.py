@@ -1,8 +1,8 @@
 import asyncio
 from copy import deepcopy
 
-from teslemetry_teslamate.Teslemetry.TeslemetryHandler import TeslemetryHandler
-from teslemetry_teslamate.Teslemetry.Vehicle import Vehicle
+from tesla_telemetry_distributor.Teslemetry.TeslemetryHandler import TeslemetryHandler
+from tesla_telemetry_distributor.Teslemetry.Vehicle import Vehicle
 from tests.conftest import log_entry_exist
 from tests.data.tesla_data import STREAM_DATA, TESLA_VEHICLE_DATA
 

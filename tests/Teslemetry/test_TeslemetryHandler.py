@@ -4,7 +4,7 @@ from unittest.mock import AsyncMock
 import pytest
 from tesla_fleet_api.exceptions import InvalidToken, TeslaFleetError
 
-from teslemetry_teslamate.Teslemetry.TeslemetryHandler import TeslemetryHandler
+from tesla_telemetry_distributor.Teslemetry.TeslemetryHandler import TeslemetryHandler
 from tests.conftest import log_entry_exist
 from tests.data.tesla_data import METADATA, PRODUCT_VIN1, STREAM_DATA
 
