@@ -202,15 +202,14 @@ class Vehicle:
 
                 vehicle_data_dict = vehicle_data[key]
                 if isinstance(vehicle_data_dict, TeslemetryEntity):
-                    # _LOGGER.debug("%s: Key: %s, value: %s", vin, key, value)
                     try:
                         if vehicle_data_dict.update_vehicledata(value):
-                            _LOGGER.debug(
-                                "%s: Updated vehicle_data entity key %s to value %s",
-                                vin,
-                                key,
-                                value,
-                            )
+                            # _LOGGER.debug(
+                            #    "%s: Updated vehicle_data entity key %s to value %s",
+                            #    vin,
+                            #    key,
+                            #    value,
+                            # )
                             if vehicle_data_dict.queue_key is not None:
                                 list_of_entities.append(vehicle_data_dict)
                     except AttributeError:
