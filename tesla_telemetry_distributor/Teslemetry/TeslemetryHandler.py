@@ -188,7 +188,7 @@ class TeslemetryHandler:
         queues_shut_down: list[str] = []
         async with self._queue_lock:
             for queue_name, queue in self._queues.items():
-                _LOGGER.debug("Sending data to queue %s: %s", queue_name, data)
+                # _LOGGER.debug("Sending data to queue %s: %s", queue_name, data)
                 try:
                     queue.put_nowait(data)
                 except asyncio.QueueFull:
