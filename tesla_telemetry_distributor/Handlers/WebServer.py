@@ -21,7 +21,7 @@ class WebServer:
     def __init__(
         self,
         teslemetry: TeslemetryHandler,
-        hostname: str = "localhost",
+        hostname: str | None = None,
         port: int = 8080,
     ) -> None:
         self._hostname = hostname

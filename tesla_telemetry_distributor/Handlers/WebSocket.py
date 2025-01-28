@@ -15,7 +15,7 @@ class WebSocket:
     def __init__(
         self,
         teslemetry: TeslemetryHandler,
-        hostname: str = "localhost",
+        hostname: str | None = None,
         port: int = 8081,
     ) -> None:
         self._hostname = hostname
