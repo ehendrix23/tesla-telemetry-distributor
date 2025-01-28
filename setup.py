@@ -21,7 +21,7 @@ DESCRIPTION = (
 URL = "https://github.com/ehendrix23/tesla-telemetry-distributor"
 EMAIL = "hendrix_erik@hotmail.com"
 AUTHOR = "Erik Hendrix"
-REQUIRES_PYTHON = ">=3.13"
+REQUIRES_PYTHON = ">=3.12"
 VERSION = None
 
 # What packages are required for this module to be executed?
