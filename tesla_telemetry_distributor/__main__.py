@@ -99,7 +99,6 @@ def parameters():
     )
     logging_params.add_argument(
         "--webserver_hostname",
-        default="localhost",
         type=str,
         help="Hostname or IP address web server should listen on for requests.",
     )
@@ -115,7 +114,6 @@ def parameters():
     )
     logging_params.add_argument(
         "--websocket_hostname",
-        default="localhost",
         type=str,
         help="Hostname or IP address web socket server should listen on",
     )
