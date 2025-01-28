@@ -104,6 +104,24 @@ class TeslemetryEntity:
 
     def update_stream(self, value: StateType) -> tuple[bool, bool]:
         """Update the value of the entity"""
+
+        casted_value = None
+        if value is not None:
+            try:
+                casted_value = (
+                    self._streaming_casting(value)
+                    if self._streaming_casting is not None
+                    else value
+                )
+            except TypeError as e:
+                _LOGGER.warning(
+                    "Value %s for queue key %s is not compatible with streaming casting %s: %s",
+                    value,
+                    self._queue_key,
+                    self._streaming_casting,
+                    e,
+                )
+
         streaming_value = (
             self._streaming_casting(value)
             if self._streaming_casting is not None
@@ -116,11 +134,23 @@ class TeslemetryEntity:
         self._streaming_value = streaming_value
         self._last_update = datetime.now()
 
-        casted_value = (
-            self._vehicledatacasting(streaming_value)
-            if self._vehicledatacasting is not None
-            else streaming_value
-        )
+        casted_value = None
+        if streaming_value is not None:
+            try:
+                casted_value = (
+                    self._vehicledatacasting(streaming_value)
+                    if self._vehicledatacasting is not None
+                    else streaming_value
+                )
+            except TypeError as e:
+                _LOGGER.warning(
+                    "Value %s for queue key %s is not compatible with vehicle data casting %s: %s",
+                    streaming_value,
+                    self._queue_key,
+                    self._vehicledatacasting,
+                    e,
+                )
+
         if self._vehicledata_value != casted_value:
             self._vehicledata_value = casted_value
             return (True, True)
