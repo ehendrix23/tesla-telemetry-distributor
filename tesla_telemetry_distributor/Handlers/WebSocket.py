@@ -278,7 +278,7 @@ class WebSocket:
                             "vin": vin,
                             "created_at": now.strftime("%Y-%m-%dT%H:%M:%S.%f"),
                         }
-                        _LOGGER.debug("%s:%s Sending %s", client, vin, send_object)
+                        # _LOGGER.debug("%s:%s Sending %s", client, vin, send_object)
                         await ws.send_json(send_object)
         except asyncio.CancelledError:
             _LOGGER.debug("%s:%s Cancel requested", client, vins)
