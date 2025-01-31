@@ -204,12 +204,12 @@ class Vehicle:
                 if isinstance(vehicle_data_dict, TeslemetryEntity):
                     try:
                         if vehicle_data_dict.update_vehicledata(value):
-                            # _LOGGER.debug(
-                            #    "%s: Updated vehicle_data entity key %s to value %s",
-                            #    vin,
-                            #    key,
-                            #    value,
-                            # )
+                            _LOGGER.trace(
+                                "%s: Updated vehicle_data entity key %s to value %s",
+                                vin,
+                                key,
+                                value,
+                            )
                             if vehicle_data_dict.queue_key is not None:
                                 list_of_entities.append(vehicle_data_dict)
                     except AttributeError:
@@ -270,12 +270,12 @@ class Vehicle:
             for entity in self._streamkeys_in_vehicle_data[streaming_key]:
                 stream_updated, vehicle_updated = entity.update_stream(streaming_value)
                 if stream_updated:
-                    # _LOGGER.debug(
-                    #     "%s: Updated streaming key %s to %s",
-                    #     self._vin,
-                    #     entity.streaming_key,
-                    #     entity.streaming_value,
-                    # )
+                    _LOGGER.trace(
+                        "%s: Updated streaming key %s to %s",
+                        self._vin,
+                        entity.streaming_key,
+                        entity.streaming_value,
+                    )
                     list_of_entities.append(entity)
                 if vehicle_updated:
                     self._tesla_vehicle_data = None

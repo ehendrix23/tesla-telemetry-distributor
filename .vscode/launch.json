@@ -1,0 +1,21 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Module",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "tesla_telemetry_distributor",
+      "console": "integratedTerminal",
+      "args": [
+        "--token",
+        "f0t7htrasx-ae04dwvr26-1hdafz7ayo-ytk3wiz9ut",
+        "--loglevel_entries",
+        "tesla_telemetry_distributor:trace"
+      ]
+    }
+  ]
+}

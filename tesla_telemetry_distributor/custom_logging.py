@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import logging
 
-LOGLEVELS = dict((logging.getLevelName(level), level) for level in [10, 20, 30, 40, 50])
+LOGLEVELS: dict = {"TRACE": logging.DEBUG - 5}
+LOGLEVELS = LOGLEVELS | dict(
+    (logging.getLevelName(level), level) for level in [10, 20, 30, 40, 50]
+)
 
 
 class Loggingfilter(logging.Filter):
@@ -25,6 +28,7 @@ class Loggingfilter(logging.Filter):
         self, default_loglevel: str, loglevel_entries: list[str] | None
     ) -> None:
         super().__init__()
+
         self._loglevel = LOGLEVELS[default_loglevel]
         self._loglevel_entries: dict[str, int] | None = {}
         if loglevel_entries is not None:
@@ -76,6 +80,25 @@ def init_logger(loglevel: str, loglevel_entries: list[str], logfile: str) -> Non
         None
     """
 
+    # Add TRACE level.
+    trace_name = "TRACE"
+    trace_number = logging.DEBUG - 5
+
+    def logForTrace(self, message, *args, **kwargs):
+        if self.isEnabledFor(trace_number):
+            self._log(trace_number, message, args, **kwargs)
+
+    def TraceLogToRoot(message, *args, **kwargs):
+        logging.log(trace_number, message, *args, **kwargs)
+
+    logging.addLevelName(trace_number, trace_name)
+    setattr(logging, trace_name, trace_number)
+    setattr(logging.getLoggerClass(), trace_name.lower(), logForTrace)
+    setattr(logging, trace_name.lower(), TraceLogToRoot)
+
+    # Get root level logger
+    root_logging = logging.getLogger("")
+
     logging_handler: logging.StreamHandler | logging.FileHandler
     if logfile is None:
         # Console handler
@@ -92,16 +115,16 @@ def init_logger(loglevel: str, loglevel_entries: list[str], logfile: str) -> Non
     )
 
     # Set to debug to that this handler gets everything
-    logging_handler.setLevel("DEBUG")
+    logging_handler.setLevel(0)
 
     # Set the format
     formatter = logging.Formatter("%(asctime)s:%(levelname)s:\t%(name)s\t%(message)s")
     logging_handler.setFormatter(formatter)
 
     # Add the handlers to the root level.
-    logging.getLogger("").addHandler(logging_handler)
-    logging.getLogger("").setLevel(logging.DEBUG)
+    root_logging.addHandler(logging_handler)
+    root_logging.setLevel(logging.TRACE)
 
-    logger = logging.getLogger("teslemetry")
-    logger.setLevel(logging.DEBUG)
+    # logger = logging.getLogger("teslemetry")
+    # logger.setLevel(logging.DEBUG)
     return None
