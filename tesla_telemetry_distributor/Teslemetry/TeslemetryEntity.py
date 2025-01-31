@@ -113,7 +113,7 @@ class TeslemetryEntity:
                     if self._streaming_casting is not None
                     else value
                 )
-            except TypeError as e:
+            except (TypeError, ValueError) as e:
                 _LOGGER.warning(
                     "Value %s for queue key %s is not compatible with streaming casting %s: %s",
                     value,
@@ -142,7 +142,7 @@ class TeslemetryEntity:
                     if self._vehicledatacasting is not None
                     else streaming_value
                 )
-            except TypeError as e:
+            except (TypeError, ValueError) as e:
                 _LOGGER.warning(
                     "Value %s for queue key %s is not compatible with vehicle data casting %s: %s",
                     streaming_value,
